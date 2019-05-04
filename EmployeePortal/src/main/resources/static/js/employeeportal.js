@@ -2,10 +2,12 @@ var app = angular.module("employee-portal", []);
 
 app.controller("EmployeeController", function($scope, $http) {
 
-alert(1230);
-  $scope.emp = {};
-    $http.get("http://localhost:8585/v1/employees")
-     .then(function(response) {
-       $scope.empList = response.data;
-     });
+     $scope.showAllEmployees = function () {
+                $http.get("/v1/employees")
+                     .then(function(response) {
+                        console.log(response);
+                       $scope.employees = response.data;
+                     });
+            };
+
 });

@@ -9,12 +9,36 @@
 <div class="container" ng-controller="EmployeeController">
 
 
-    <div class="row" ng-repeat="employee in employees">
-        <div class="">
-            <h3>{{employee.firstname}}</h3>
-           <h1>{{firstName}}</h1>
-        </div>
-    </div>
+    <button ng-click="showAllEmployees()">Display All Employees</button>
+    <br/>
+    <br/>
+    <table>
+        <th> Employee Details</th>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>DateOfBirth</th>
+            <th>Department</th>
+        </tr>
+        <tr ng-repeat="employee in employees">
+            <div>
+                <td>{{employee.firstname}}</td>
+            </div>
+            <div>
+                <td>{{employee.lastname}}</td>
+            </div>
+            <div>
+                <td>{{employee.gender}}</td>
+            </div>
+            <div>
+                <td>{{employee.dob}}</td>
+            </div>
+            <div>
+                <td>{{employee.department}}</td>
+            </div>
+        </tr>
+    </table>
 </div>
 </body>
 <script src="js/angular.min.js"></script>
