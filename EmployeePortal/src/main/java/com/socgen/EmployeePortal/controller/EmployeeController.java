@@ -12,25 +12,25 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @GetMapping("/v1/employees")
-    private List<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
     @GetMapping("/v1/employees/{id}")
-    private Employee getEmployee(@PathVariable("id") int id) {
+    public Employee getEmployee(@PathVariable("id") int id) {
         return employeeService.getEmployeeById(id);
     }
 
     @DeleteMapping("/v1/employees/{id}")
-    private void deleteEmployee(@PathVariable("id") int id) {
+    public void deleteEmployee(@PathVariable("id") int id) {
         employeeService.delete(id);
     }
 
     @PostMapping("/v1/employees")
-    private int saveEmployee(@RequestBody Employee employee) {
+    public int saveEmployee(@RequestBody Employee employee) {
         employeeService.saveOrUpdate(employee);
         return employee.getId();
     }
