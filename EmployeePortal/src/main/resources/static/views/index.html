@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="employee-portal">
+<hr/>
+<div class="container" ng-controller="EmployeeController">
+
+
+    <div class="row" ng-repeat="employee in employees">
+        <div class="">
+            <h3>{{employee.firstname}}</h3>
+           <h1>{{firstName}}</h1>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-tpls.js"></script>
+<script src="js/employeeportal.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/employeeportal.css"/>
+</html>
