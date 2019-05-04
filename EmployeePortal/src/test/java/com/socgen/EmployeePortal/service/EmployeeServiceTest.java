@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -47,8 +48,19 @@ public class EmployeeServiceTest {
     public void test_getEmployeeById() {
         Employee emp = employeeService.getEmployeeById(5);
         assertTrue(emp.getFirstname().equals("manju"));
+        assertTrue(emp.getLastname().equals("S"));
+        assertTrue(emp.getDob().equals("19-12-1990"));
+        assertTrue(emp.getGender().equals("M"));
+        assertTrue(emp.getDepartment().equals("APPS"));
+        assertNotNull(emp.toString());
         emp = employeeService.getEmployeeById(1);
         assertNull(emp);
+    }
+
+    @Test
+    public void test_SaveandDelete() {
+        employeeService.saveOrUpdate(null);
+        employeeService.delete(2);
     }
 
 
@@ -59,12 +71,14 @@ public class EmployeeServiceTest {
         emp.setFirstname("manju");
         emp.setLastname("S");
         emp.setDob("19-12-1990");
+        emp.setGender("M");
         emp.setDepartment("APPS");
         employees.add(emp);
         Employee emp1 = new Employee();
         emp1.setId(5);
         emp1.setFirstname("akash");
         emp1.setLastname("k");
+        emp.setGender("M");
         emp1.setDob("02-12-2010");
         emp1.setDepartment("HR");
         employees.add(emp1);

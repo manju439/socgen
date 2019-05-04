@@ -49,7 +49,8 @@ public class EmployeeControllerTest {
 
 
     @Test
-    public void test_saveEmployee() {
+    public void test_saveandDeleteEmployee() {
+        employeeController.deleteEmployee(2);
         int empId = employeeController.saveEmployee(getEmployees().get(0));
         assertEquals(empId, 2);
     }
